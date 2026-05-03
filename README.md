@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ◈ Airlock
 
-## Getting Started
+**Source-to-sink firewall for agentic web browsing.**
 
-First, run the development server:
+Airlock strips prompt injection, hostile instructions, and hidden content before your AI agent ever sees it. The protocol that makes agentic browsing safe by default.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+> *"External content is evidence, not instruction."*
+
+---
+
+## The Problem
+
+Modern AI agents read web pages to gather information, follow links, and take actions on behalf of users. That makes them targets:
+
+- **Prompt injection** via hidden text buried in CSS, alt text, or off-screen HTML
+- **Memory write gates** — links that silently instruct the agent to modify its own system prompt
+- **Compromised link injection** — URLs that redirect to attacker-controlled domains after page render
+
+The browser layer is the gap. Most AI security investment goes into model hardening or RAG pipelines. Almost none goes into what the agent actually reads.
+
+---
+
+## How It Works
+
+```
+Agent requests URL → Airlock Scanner → Evidence Packet → Agent receives sanitized content
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**What gets stripped:**
+- Hidden or off-screen HTML containing injection text
+- Links that trigger memory-write or instruction-override sequences
+- `<script>`, `<style>`, `<iframe>`, and embedded media that can't be statically verified
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**What gets preserved:**
+- Clean, readable text content
+- Safe outbound links
+- Structural metadata — headings, lists, code blocks — for context
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Threat Model
 
-To learn more about Next.js, take a look at the following resources:
+Airlock is designed to defend against:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Static injection** — hidden/off-screen HTML with adversarial instructions
+2. **Link-based instruction override** — URLs engineered to trigger agent behavior changes
+3. **Rendered-content manipulation** — JavaScript that alters page content after initial parse
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Airlock is a **static scanner** in v1. Rendered scan mode is on the roadmap.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Security Policy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If you find a bypass or vulnerability in Airlock's scanner, please do not disclose publicly. Contact the maintainers directly. We take security seriously and will respond promptly.
+
+---
+
+## Status
+
+⚠️ **Not yet production ready.** The landing page is live at [airlock.codes](https://airlock.codes). The scanner library is in development. NPM/PyPI packages coming soon.
+
+---
+
+## License
+
+MIT — free forever for self-hosted use.
+
+---
+
+## Links
+
+- 🌐 **Landing page:** [airlock.codes](https://airlock.codes)
+- 🐙 **GitHub:** [github.com/mmsneaks11-max/airlock](https://github.com/mmsneaks11-max/airlock)
+- 𝕏 **X/Twitter:** [@AirLockcodes](https://x.com/AirLockcodes)
+- 📧 **Contact:** founders@theagentdeck.ai
