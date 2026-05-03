@@ -71,6 +71,6 @@ MIT — free forever for self-hosted use.
 ## Links
 
 - 🌐 **Landing page:** [airlock.codes](https://airlock.codes)
-- 🐙 **GitHub:** [github.com/mmsneaks11-max/airlock](https://github.com/mmsneaks11-max/airlock)
+- 🐙 **GitHub:** [github.com/theagentdeck/airlock](https://github.com/theagentdeck/airlock)
 - 𝕏 **X/Twitter:** [@AirLockcodes](https://x.com/AirLockcodes)
 - 📧 **Contact:** founders@theagentdeck.ai

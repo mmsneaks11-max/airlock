@@ -1,65 +1,267 @@
-import Image from "next/image";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className={styles.page}>
+      {/* Nav */}
+      <nav className={styles.nav}>
+        <div className={styles.navInner}>
+          <div className={styles.logo}>
+            <span className={styles.logoMark}>◈</span>
+            <span className={styles.logoText}>Airlock</span>
+          </div>
+          <div className={styles.navLinks}>
+            <a href="#how-it-works">How it works</a>
+            <a href="#open-source">Open Source</a>
+            <a href="#pricing">Pricing</a>
+            <a href="https://github.com/theagentdeck/airlock" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+      </nav>
+
+      <main>
+        {/* Hero */}
+        <section className={styles.hero}>
+          <div className={styles.heroImage}>
+            <img src="/airlockhero.png" alt="Airlock — External content is evidence, not instruction." />
+          </div>
+          <div className={styles.heroInner}>
+            <div className={styles.heroBadge}>Now in public beta</div>
+            <h1 className={styles.heroHeadline}>
+              The source-to-sink firewall for agent web browsing.
+            </h1>
+            <p className={styles.heroSubhead}>
+              Airlock strips prompt injection, hostile instructions, and hidden content before your agent ever sees it. The protocol that makes agentic browsing safe by default.
+            </p>
+            <div className={styles.heroCtas}>
+              <a href="#open-source" className={styles.ctaPrimary}>View on GitHub</a>
+              <a href="#waitlist" className={styles.ctaSecondary}>Join the waitlist</a>
+            </div>
+          </div>
+        </section>
+
+        {/* The Problem */}
+        <section className={styles.problem} id="problem">
+          <div className={styles.sectionInner}>
+            <div className={styles.sectionLabel}>The Problem</div>
+            <h2 className={styles.sectionHeadline}>The web is hostile to agents.</h2>
+            <p className={styles.sectionBody}>
+              Modern AI agents read web pages to gather information, follow links, and take actions on behalf of users. That makes them targets.
+            </p>
+            <div className={styles.threatGrid}>
+              <div className={styles.threatCard}>
+                <div className={styles.threatLabel}>Prompt injection via hidden text</div>
+                <p>Adversarial content buried in CSS, alt text, or off-screen HTML that overrides agent instructions when parsed.</p>
+              </div>
+              <div className={styles.threatCard}>
+                <div className={styles.threatLabel}>Memory write gates</div>
+                <p>Links that, when followed, silently instruct the agent to modify its own system prompt or memory store.</p>
+              </div>
+              <div className={styles.threatCard}>
+                <div className={styles.threatLabel}>Compromised link injection</div>
+                <p>Embedded URLs that redirect to attacker-controlled domains after the page renders.</p>
+              </div>
+            </div>
+            <div className={styles.realExample}>
+              <div className={styles.realExampleLabel}>Example attack pattern</div>
+              <p>A prompt injection attempt might look like an off-screen <code>&lt;div&gt;</code> seeded with hidden instruction text, designed to override agent behavior when parsed. Airlock&apos;s scanner catches and strips it before the agent ever processes the content.</p>
+            </div>
+            <p className={styles.gapNote}>The browser layer is the gap. Most AI security investment goes into model hardening or RAG pipelines. Almost none goes into what the agent actually reads.</p>
+          </div>
+        </section>
+
+        {/* How It Works */}
+        <section className={styles.how} id="how-it-works">
+          <div className={styles.sectionInner}>
+            <div className={styles.sectionLabel}>How it works</div>
+            <h2 className={styles.sectionHeadline}>Simple. Consistent. Invisible to the agent.</h2>
+            <div className={styles.flowDiagram}>
+              <div className={styles.flowStep}>
+                <div className={styles.flowDot}>1</div>
+                <div className={styles.flowContent}>
+                  <div className={styles.flowTitle}>Agent requests URL</div>
+                </div>
+              </div>
+              <div className={styles.flowArrow}>→</div>
+              <div className={styles.flowStep}>
+                <div className={styles.flowDot}>2</div>
+                <div className={styles.flowContent}>
+                  <div className={styles.flowTitle}>Airlock Scanner</div>
+                  <div className={styles.flowSub}>Fetches, parses, sanitizes</div>
+                </div>
+              </div>
+              <div className={styles.flowArrow}>→</div>
+              <div className={styles.flowStep}>
+                <div className={styles.flowDot}>3</div>
+                <div className={styles.flowContent}>
+                  <div className={styles.flowTitle}>Evidence Packet</div>
+                  <div className={styles.flowSub}>Clean text, safe URLs, stripped content</div>
+                </div>
+              </div>
+              <div className={styles.flowArrow}>→</div>
+              <div className={styles.flowStep}>
+                <div className={styles.flowDot}>4</div>
+                <div className={styles.flowContent}>
+                  <div className={styles.flowTitle}>Agent receives sanitized content only</div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.stripPreserve}>
+              <div className={styles.stripPreserveCol}>
+                <div className={styles.spHeader}>What gets stripped</div>
+                <ul>
+                  <li>Hidden or off-screen HTML containing injection text</li>
+                  <li>JavaScript-rendered content that could alter agent behavior</li>
+                  <li>Links that trigger memory-write or instruction-override sequences</li>
+                  <li>Any <code>&lt;script&gt;</code>, <code>&lt;style&gt;</code>, <code>&lt;iframe&gt;</code>, and embedded media that can&apos;t be statically verified</li>
+                </ul>
+              </div>
+              <div className={styles.stripPreserveCol}>
+                <div className={styles.spHeader}>What gets preserved</div>
+                <ul>
+                  <li>Clean, readable text content</li>
+                  <li>Safe outbound links</li>
+                  <li>Structural metadata — headings, lists, code blocks — for context</li>
+                </ul>
+              </div>
+            </div>
+            <div className={styles.noMiddleware}>
+              Static scan mode first. Rendered scan mode coming later.
+            </div>
+          </div>
+        </section>
+
+        {/* Open Source */}
+        <section className={styles.opensource} id="open-source">
+          <div className={styles.sectionInner}>
+            <div className={styles.sectionLabel}>Open Source</div>
+            <h2 className={styles.sectionHeadline}>MIT licensed. Free forever for self-hosted.</h2>
+            <p className={styles.sectionBody}>
+              The Airlock scanner library is open source under the MIT license. Self-host it, run it locally, fork it, extend it — no strings.
+            </p>
+            <div className={styles.installGrid}>
+              <div className={styles.installCard}>
+                <div className={styles.installLabel}>GitHub</div>
+                <code>github.com/theagentdeck/airlock</code>
+              </div>
+              <div className={styles.installCard}>
+                <div className={styles.installLabel}>NPM</div>
+                <code>@airlock/scanner — coming soon</code>
+              </div>
+              <div className={styles.installCard}>
+                <div className={styles.installLabel}>PyPI</div>
+                <code>airlock-scanner — coming soon</code>
+              </div>
+            </div>
+            <blockquote className={styles.moatQuote}>
+              &ldquo;The protocol is the moat; the scanner is the wedge. We open-sourced the wedge because a moat that only benefits the wealthy isn&apos;t a moat.&rdquo;
+            </blockquote>
+          </div>
+        </section>
+
+        {/* Waitlist */}
+        <section className={styles.waitlist} id="waitlist">
+          <div className={styles.sectionInner}>
+            <div className={styles.waitlistCard}>
+              <h2 className={styles.waitlistHeadline}>Need it running without managing infrastructure?</h2>
+              <p>A hosted Airlock API is coming. Same scanner, zero ops overhead.</p>
+              <div className={styles.waitlistForm}>
+                <input type="email" placeholder="you@example.com" className={styles.emailInput} />
+                <a href="mailto:waitlist@airlock.codes" className={styles.submitBtn}>Join waitlist</a>
+              </div>
+              <p className={styles.waitlistNote}>One email. No spam. Launch notification only.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing */}
+        <section className={styles.pricing} id="pricing">
+          <div className={styles.sectionInner}>
+            <div className={styles.sectionLabel}>Pricing Preview</div>
+            <h2 className={styles.sectionHeadline}>Start free. Scale when you&apos;re ready.</h2>
+            <div className={styles.pricingGrid}>
+              <div className={styles.priceCard}>
+                <div className={styles.priceTier}>Starter</div>
+                <div className={styles.priceAmount}>$29<span>/mo</span></div>
+                <div className={styles.priceDesc}>Solo developers, first agent ops</div>
+                <ul className={styles.priceFeatures}>
+                  <li>5,000 scans/month</li>
+                  <li>Self-hosted scanner</li>
+                  <li>Community support</li>
+                </ul>
+              </div>
+              <div className={`${styles.priceCard} ${styles.priceCardFeatured}`}>
+                <div className={styles.priceTier}>Pro</div>
+                <div className={styles.priceAmount}>$99<span>/mo</span></div>
+                <div className={styles.priceDesc}>Growing teams, production agents</div>
+                <ul className={styles.priceFeatures}>
+                  <li>50,000 scans/month</li>
+                  <li>Audit log (30 day retention)</li>
+                  <li>Priority email support</li>
+                  <li>Private packets, no watermark</li>
+                </ul>
+              </div>
+              <div className={styles.priceCard}>
+                <div className={styles.priceTier}>Scale</div>
+                <div className={styles.priceAmount}>$299<span>/mo</span></div>
+                <div className={styles.priceDesc}>Multi-agent ops, serious throughput</div>
+                <ul className={styles.priceFeatures}>
+                  <li>1,000,000 scans/month</li>
+                  <li>Audit log (1 year retention)</li>
+                  <li>Slack support</li>
+                  <li>5 seats included</li>
+                </ul>
+              </div>
+              <div className={styles.priceCard}>
+                <div className={styles.priceTier}>Enterprise</div>
+                <div className={styles.priceAmount}>$1,500<span>+/mo</span></div>
+                <div className={styles.priceDesc}>Large orgs, custom contracts</div>
+                <ul className={styles.priceFeatures}>
+                  <li>Unlimited scans</li>
+                  <li>Dedicated infrastructure</li>
+                  <li>SLA + dedicated CSM</li>
+                  <li>Custom integrations</li>
+                </ul>
+              </div>
+            </div>
+            <p className={styles.enterpriseNote}>Enterprise? <a href="mailto:founders@theagentdeck.ai">Talk to us.</a></p>
+          </div>
+        </section>
       </main>
+
+      {/* Footer */}
+      <footer className={styles.footer}>
+        <div className={styles.footerInner}>
+          <div className={styles.footerTop}>
+            <div className={styles.footerBrand}>
+              <div className={styles.footerLogo}>
+                <span className={styles.logoMark}>◈</span>
+                <span>Airlock</span>
+              </div>
+              <p>Source-to-sink security for agentic browsing</p>
+            </div>
+            <div className={styles.footerLinks}>
+              <div className={styles.footerCol}>
+                <div className={styles.footerColLabel}>Product</div>
+                <a href="#how-it-works">How it works</a>
+                <a href="#open-source">Open Source</a>
+                <a href="#pricing">Pricing</a>
+              </div>
+              <div className={styles.footerCol}>
+                <div className={styles.footerColLabel}>Connect</div>
+                <a href="https://github.com/theagentdeck/airlock" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://x.com/AirLockcodes" target="_blank" rel="noopener noreferrer">@AirLockcodes</a>
+                <a href="mailto:founders@theagentdeck.ai">Contact</a>
+              </div>
+            </div>
+          </div>
+          <div className={styles.footerBottom}>
+            <div>Built by Kreez / The Lounge</div>
+            <div>Powered by TheAgentDeck.ai</div>
+            <div>© 2026 — MIT License</div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
