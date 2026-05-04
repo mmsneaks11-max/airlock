@@ -142,7 +142,7 @@ export default function Home() {
               </div>
               <div className={styles.installCard}>
                 <div className={styles.installLabel}>Docker</div>
-                <code>docker pull airlockcodes/airlock</code>
+                <code>hub.docker.com/r/theagentdeck/airlock-scanner</code>
               </div>
             </div>
             <blockquote className={styles.moatQuote}>
