@@ -166,6 +166,9 @@ export default function Home() {
                   <li>Self-hosted scanner</li>
                   <li>Community support</li>
                 </ul>
+                <a href="https://airlock-api-production.up.railway.app/api/checkout?tier=starter" className={styles.priceCta}>
+                  Get Starter
+                </a>
               </div>
               <div className={`${styles.priceCard} ${styles.priceCardFeatured}`}>
                 <div className={styles.priceTier}>Pro</div>
@@ -177,6 +180,9 @@ export default function Home() {
                   <li>Priority email support</li>
                   <li>Private packets, no watermark</li>
                 </ul>
+                <a href="https://airlock-api-production.up.railway.app/api/checkout?tier=pro" className={styles.priceCta}>
+                  Get Pro
+                </a>
               </div>
               <div className={styles.priceCard}>
                 <div className={styles.priceTier}>Scale</div>
@@ -188,6 +194,9 @@ export default function Home() {
                   <li>Slack support</li>
                   <li>5 seats included</li>
                 </ul>
+                <a href="https://airlock-api-production.up.railway.app/api/checkout?tier=scale" className={styles.priceCta}>
+                  Get Scale
+                </a>
               </div>
               <div className={styles.priceCard}>
                 <div className={styles.priceTier}>Enterprise</div>
@@ -199,6 +208,9 @@ export default function Home() {
                   <li>SLA + dedicated CSM</li>
                   <li>Custom integrations</li>
                 </ul>
+                <a href="mailto:enterprise@airlock.codes" className={styles.priceCta}>
+                  Contact Us
+                </a>
               </div>
             </div>
             <p className={styles.enterpriseNote}>Enterprise? <a href="mailto:founders@theagentdeck.ai">Talk to us.</a></p>
