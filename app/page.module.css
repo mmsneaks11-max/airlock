@@ -1,0 +1,710 @@
+/* ============================================
+   AirLock Landing Page — CSS Module
+   Design tokens from hero banner
+   ============================================ */
+
+/* ── Design Tokens ────────────────────────── */
+.root {
+  /* Brand / Safe / Keep-in */
+  --gold:          #D4A017;
+  --gold-light:    #F0C040;
+  --gold-dim:      #8A6A0A;
+  --white:         #F5F5F0;
+  --cream:         #E8E4D9;
+  
+  /* Threats / Keep-out */
+  --red:           #E63946;
+  --red-dim:       #8B1A22;
+  --red-glow:      rgba(230, 57, 70, 0.15);
+  
+  /* Surfaces */
+  --bg-primary:    #0A0A0A;
+  --bg-secondary:  #111111;
+  --bg-card:       #141414;
+  --bg-elevated:   #1A1A1A;
+  
+  /* Borders / Dividers */
+  --border-subtle: rgba(212, 160, 23, 0.15);
+  --border-mid:    rgba(212, 160, 23, 0.3);
+  
+  /* Text */
+  --text-primary:  #F0EDE6;
+  --text-secondary: #B8B3A4;
+  --text-muted:    #6B6659;
+  
+  /* Danger label */
+  --text-danger:   #FF4D5A;
+  
+  /* Typography */
+  --font-sans:     'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif:    'Playfair Display', Georgia, serif;
+  
+  /* Spacing */
+  --section-pad:   clamp(4rem, 8vw, 7rem);
+  --container:     1100px;
+  --radius-sm:     6px;
+  --radius-md:     12px;
+  --radius-lg:     20px;
+}
+
+/* ── Page Shell ──────────────────────────── */
+.page {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
+}
+
+/* ── Navigation ──────────────────────────── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.navInner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logoMark {
+  color: var(--gold);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.logoText {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: -0.02em;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLinks a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.navLinks a:hover {
+  color: var(--gold);
+}
+
+/* ── Section Utilities ────────────────────── */
+.sectionInner {
+  composes: container;
+  padding-top: var(--section-pad);
+  padding-bottom: var(--section-pad);
+}
+
+.sectionLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.sectionHeadline {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.sectionBody {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 620px;
+}
+
+/* ── Hero ────────────────────────────────── */
+.hero {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+
+.heroImage {
+  width: 100%;
+  display: block;
+}
+
+.heroImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.heroInner {
+  /* Overlay text positioned over hero image via the page layout */
+}
+
+/* ── Problem / Threats ────────────────────── */
+.problem {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.threatGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.threatCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+}
+
+.threatLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.75rem;
+}
+
+.threatCard p {
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.realExample {
+  background: var(--red-glow);
+  border: 1px solid rgba(230, 57, 70, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+
+.realExampleLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+
+.realExample p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.realExample code {
+  background: rgba(230, 57, 70, 0.12);
+  color: var(--red);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85em;
+}
+
+.gapNote {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+
+/* ── How It Works ────────────────────────── */
+.how {
+  background: var(--bg-primary);
+}
+
+.flowDiagram {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 3rem 0;
+  flex-wrap: wrap;
+  row-gap: 1.5rem;
+}
+
+.flowStep {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+  min-width: 180px;
+}
+
+.flowDot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.flowContent {
+  padding-top: 0.35rem;
+}
+
+.flowTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.flowSub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.flowArrow {
+  color: var(--gold-dim);
+  font-size: 1.5rem;
+  padding: 0 0.75rem;
+  flex-shrink: 0;
+  padding-top: 0.35rem;
+}
+
+.stripPreserve {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+@media (max-width: 640px) {
+  .stripPreserve {
+    grid-template-columns: 1fr;
+  }
+}
+
+.spHeader {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.stripPreserveCol:first-child .spHeader {
+  color: var(--red);
+}
+
+.stripPreserveCol:last-child .spHeader {
+  color: var(--gold);
+}
+
+.stripPreserve ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.stripPreserve li {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.stripPreserveCol:first-child li::before {
+  content: '✕';
+  position: absolute;
+  left: 0;
+  color: var(--red-dim);
+  font-weight: 700;
+}
+
+.stripPreserveCol:last-child li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dim);
+  font-weight: 700;
+}
+
+.noMiddleware {
+  text-align: center;
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  font-style: italic;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 1rem;
+}
+
+/* ── Open Source ──────────────────────────── */
+.opensource {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.installGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.installCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.installLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.installCard code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  word-break: break-all;
+}
+
+.moatQuote {
+  border-left: 3px solid var(--gold);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0 0;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Waitlist ────────────────────────────── */
+.waitlist {
+  background: var(--bg-primary);
+}
+
+.waitlistCard {
+  background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-elevated) 100%);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.waitlistHeadline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.waitlistCard > p {
+  font-size: 0.975rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.waitlistForm {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 420px;
+  margin: 0 auto 1rem;
+  flex-wrap: wrap;
+}
+
+.emailInput {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.925rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.emailInput::placeholder {
+  color: var(--text-muted);
+}
+
+.emailInput:focus {
+  border-color: var(--gold);
+}
+
+.submitBtn {
+  padding: 0.75rem 1.5rem;
+  background: var(--gold);
+  color: var(--bg-primary);
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.submitBtn:hover {
+  background: var(--gold-light);
+}
+
+.waitlistNote {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+/* ── Pricing ─────────────────────────────── */
+.pricing {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin: 2.5rem 0 2rem;
+}
+
+.priceCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.priceCardFeatured {
+  border-color: var(--gold);
+  box-shadow: 0 0 40px rgba(212, 160, 23, 0.08);
+}
+
+.priceTier {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.priceAmount {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+}
+
+.priceAmount span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.priceDesc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.priceFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.priceFeatures li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.priceFeatures li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dim);
+  font-weight: 700;
+}
+
+.enterpriseNote {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.enterpriseNote a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.enterpriseNote a:hover {
+  text-decoration: underline;
+}
+
+/* ── Footer ─────────────────────────────── */
+.footer {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+  padding: 3rem 0 2rem;
+}
+
+.footerInner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3rem);
+}
+
+.footerTop {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 640px) {
+  .footerTop {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.footerBrand {
+  max-width: 300px;
+}
+
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gold);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.footerBrand p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 3rem;
+}
+
+.footerCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerColLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.footerCol a {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footerCol a:hover {
+  color: var(--gold);
+}
+
+.footerBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  gap: 1rem;
+  flex-wrap: wrap;
+}

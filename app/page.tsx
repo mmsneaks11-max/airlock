@@ -12,6 +12,7 @@ export default function Home() {
           </div>
           <div className={styles.navLinks}>
             <a href="#how-it-works">How it works</a>
+            <a href="#threats">Threats</a>
             <a href="#open-source">Open Source</a>
             <a href="#pricing">Pricing</a>
             <a href="https://github.com/theagentdeck/airlock" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -25,23 +26,10 @@ export default function Home() {
           <div className={styles.heroImage}>
             <img src="/airlockhero.png" alt="Airlock — External content is evidence, not instruction." />
           </div>
-          <div className={styles.heroInner}>
-            <div className={styles.heroBadge}>Now in public beta</div>
-            <h1 className={styles.heroHeadline}>
-              The source-to-sink firewall for agent web browsing.
-            </h1>
-            <p className={styles.heroSubhead}>
-              Airlock strips prompt injection, hostile instructions, and hidden content before your agent ever sees it. The protocol that makes agentic browsing safe by default.
-            </p>
-            <div className={styles.heroCtas}>
-              <a href="#open-source" className={styles.ctaPrimary}>View on GitHub</a>
-              <a href="#waitlist" className={styles.ctaSecondary}>Join the waitlist</a>
-            </div>
-          </div>
         </section>
 
         {/* The Problem */}
-        <section className={styles.problem} id="problem">
+        <section className={styles.problem} id="threats">
           <div className={styles.sectionInner}>
             <div className={styles.sectionLabel}>The Problem</div>
             <h2 className={styles.sectionHeadline}>The web is hostile to agents.</h2>
@@ -146,11 +134,15 @@ export default function Home() {
               </div>
               <div className={styles.installCard}>
                 <div className={styles.installLabel}>NPM</div>
-                <code>@airlock/scanner — coming soon</code>
+                <code>npm install airlock-codes</code>
               </div>
               <div className={styles.installCard}>
                 <div className={styles.installLabel}>PyPI</div>
-                <code>airlock-scanner — coming soon</code>
+                <code>pip install airlock-codes</code>
+              </div>
+              <div className={styles.installCard}>
+                <div className={styles.installLabel}>Docker</div>
+                <code>docker pull airlockcodes/airlock</code>
               </div>
             </div>
             <blockquote className={styles.moatQuote}>
@@ -159,25 +151,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Waitlist */}
-        <section className={styles.waitlist} id="waitlist">
-          <div className={styles.sectionInner}>
-            <div className={styles.waitlistCard}>
-              <h2 className={styles.waitlistHeadline}>Need it running without managing infrastructure?</h2>
-              <p>A hosted Airlock API is coming. Same scanner, zero ops overhead.</p>
-              <div className={styles.waitlistForm}>
-                <input type="email" placeholder="you@example.com" className={styles.emailInput} />
-                <a href="mailto:waitlist@airlock.codes" className={styles.submitBtn}>Join waitlist</a>
-              </div>
-              <p className={styles.waitlistNote}>One email. No spam. Launch notification only.</p>
-            </div>
-          </div>
-        </section>
-
         {/* Pricing */}
         <section className={styles.pricing} id="pricing">
           <div className={styles.sectionInner}>
-            <div className={styles.sectionLabel}>Pricing Preview</div>
+            <div className={styles.sectionLabel}>Pricing</div>
             <h2 className={styles.sectionHeadline}>Start free. Scale when you&apos;re ready.</h2>
             <div className={styles.pricingGrid}>
               <div className={styles.priceCard}>
@@ -244,6 +221,7 @@ export default function Home() {
               <div className={styles.footerCol}>
                 <div className={styles.footerColLabel}>Product</div>
                 <a href="#how-it-works">How it works</a>
+                <a href="#threats">Threats</a>
                 <a href="#open-source">Open Source</a>
                 <a href="#pricing">Pricing</a>
               </div>
