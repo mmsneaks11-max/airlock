@@ -128,22 +128,22 @@ export default function Home() {
               The Airlock scanner library is open source under the MIT license. Self-host it, run it locally, fork it, extend it — no strings.
             </p>
             <div className={styles.installGrid}>
-              <div className={styles.installCard}>
+              <a href="https://github.com/theagentdeck/airlock" target="_blank" rel="noopener noreferrer" className={styles.installCard}>
                 <div className={styles.installLabel}>GitHub</div>
                 <code>github.com/theagentdeck/airlock</code>
-              </div>
-              <div className={styles.installCard}>
+              </a>
+              <a href="https://www.npmjs.com/package/airlock-codes" target="_blank" rel="noopener noreferrer" className={styles.installCard}>
                 <div className={styles.installLabel}>NPM</div>
                 <code>npm install airlock-codes</code>
-              </div>
-              <div className={styles.installCard}>
+              </a>
+              <a href="https://pypi.org/project/airlock-codes" target="_blank" rel="noopener noreferrer" className={styles.installCard}>
                 <div className={styles.installLabel}>PyPI</div>
                 <code>pip install airlock-codes</code>
-              </div>
-              <div className={styles.installCard}>
+              </a>
+              <a href="https://hub.docker.com/repository/docker/theagentdeck/airlock-scanner/general" target="_blank" rel="noopener noreferrer" className={styles.installCard}>
                 <div className={styles.installLabel}>Docker</div>
                 <code>docker pull theagentdeck/airlock-scanner</code>
-              </div>
+              </a>
             </div>
             <blockquote className={styles.moatQuote}>
               &ldquo;The protocol is the moat; the scanner is the wedge. We open-sourced the wedge because a moat that only benefits the wealthy isn&apos;t a moat.&rdquo;

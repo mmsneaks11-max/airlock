@@ -409,6 +409,14 @@
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  display: block;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.installCard:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 20px rgba(212, 160, 23, 0.08);
 }
 
 .installLabel {
