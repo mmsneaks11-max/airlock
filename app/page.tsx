@@ -52,7 +52,7 @@ export default function Home() {
             </div>
             <div className={styles.realExample}>
               <div className={styles.realExampleLabel}>Example attack pattern</div>
-              <p>A prompt injection attempt might look like an off-screen <code>&lt;div&gt;</code> seeded with hidden instruction text, designed to override agent behavior when parsed. Airlock&apos;s scanner catches and strips it before the agent ever processes the content.</p>
+              <p>An agent browsing a documentation page encountered an off-screen <code>&lt;div&gt;</code> seeded with injection text designed to trigger a memory-write sequence when the agent summarized the page. Airlock&apos;s scanner caught and stripped it before the agent ever processed the content.</p>
             </div>
             <p className={styles.gapNote}>The browser layer is the gap. Most AI security investment goes into model hardening or RAG pipelines. Almost none goes into what the agent actually reads.</p>
           </div>
@@ -127,6 +127,11 @@ export default function Home() {
             <p className={styles.sectionBody}>
               The Airlock scanner library is open source under the MIT license. Self-host it, run it locally, fork it, extend it — no strings.
             </p>
+            <div className={styles.quickStart}>
+              <div className={styles.quickStartLabel}>One command. See it work.</div>
+              <code className={styles.quickStartCmd}>npx @airlock/scanner https://example.com</code>
+              <div className={styles.quickStartNote}>Returns a clean evidence packet. Strips hidden injections, memory-write gates, adversarial CSS.</div>
+            </div>
             <div className={styles.installGrid}>
               <a href="https://github.com/theagentdeck/airlock" target="_blank" rel="noopener noreferrer" className={styles.installCard}>
                 <div className={styles.installLabel}>GitHub</div>
@@ -157,7 +162,7 @@ export default function Home() {
             <div className={styles.sectionLabel}>Pricing</div>
             <h2 className={styles.sectionHeadline}>Start free. Scale when you&apos;re ready.</h2>
             <div className={styles.pricingGrid}>
-              <div className={styles.priceCard}>
+              <a href="https://airlock-api-production.up.railway.app/api/checkout?tier=starter" className={styles.priceCard}>
                 <div className={styles.priceTier}>Starter</div>
                 <div className={styles.priceAmount}>$29<span>/mo</span></div>
                 <div className={styles.priceDesc}>Solo developers, first agent ops</div>
@@ -166,11 +171,9 @@ export default function Home() {
                   <li>Self-hosted scanner</li>
                   <li>Community support</li>
                 </ul>
-                <a href="https://airlock-api-production.up.railway.app/api/checkout?tier=starter" className={styles.priceCta}>
-                  Get Starter
-                </a>
-              </div>
-              <div className={`${styles.priceCard} ${styles.priceCardFeatured}`}>
+                <span className={styles.priceCta}>Get Starter →</span>
+              </a>
+              <a href="https://airlock-api-production.up.railway.app/api/checkout?tier=pro" className={`${styles.priceCard} ${styles.priceCardFeatured}`}>
                 <div className={styles.priceTier}>Pro</div>
                 <div className={styles.priceAmount}>$99<span>/mo</span></div>
                 <div className={styles.priceDesc}>Growing teams, production agents</div>
@@ -180,11 +183,9 @@ export default function Home() {
                   <li>Priority email support</li>
                   <li>Private packets, no watermark</li>
                 </ul>
-                <a href="https://airlock-api-production.up.railway.app/api/checkout?tier=pro" className={styles.priceCta}>
-                  Get Pro
-                </a>
-              </div>
-              <div className={styles.priceCard}>
+                <span className={styles.priceCta}>Get Pro →</span>
+              </a>
+              <a href="https://airlock-api-production.up.railway.app/api/checkout?tier=scale" className={styles.priceCard}>
                 <div className={styles.priceTier}>Scale</div>
                 <div className={styles.priceAmount}>$299<span>/mo</span></div>
                 <div className={styles.priceDesc}>Multi-agent ops, serious throughput</div>
@@ -194,11 +195,9 @@ export default function Home() {
                   <li>Slack support</li>
                   <li>5 seats included</li>
                 </ul>
-                <a href="https://airlock-api-production.up.railway.app/api/checkout?tier=scale" className={styles.priceCta}>
-                  Get Scale
-                </a>
-              </div>
-              <div className={styles.priceCard}>
+                <span className={styles.priceCta}>Get Scale →</span>
+              </a>
+              <a href="mailto:enterprise@airlock.codes" className={styles.priceCard}>
                 <div className={styles.priceTier}>Enterprise</div>
                 <div className={styles.priceAmount}>$1,500<span>+/mo</span></div>
                 <div className={styles.priceDesc}>Large orgs, custom contracts</div>
@@ -208,10 +207,8 @@ export default function Home() {
                   <li>SLA + dedicated CSM</li>
                   <li>Custom integrations</li>
                 </ul>
-                <a href="mailto:enterprise@airlock.codes" className={styles.priceCta}>
-                  Contact Us
-                </a>
-              </div>
+                <span className={styles.priceCta}>Contact Us →</span>
+              </a>
             </div>
             <p className={styles.enterpriseNote}>Enterprise? <a href="mailto:founders@theagentdeck.ai">Talk to us.</a></p>
           </div>

@@ -3,48 +3,133 @@
    Design tokens from hero banner
    ============================================ */
 
-/* ── Design Tokens ────────────────────────── */
+/* ── Design Tokens — AirLock Visual System ─── */
+/* Updated by Pixel ✨ 2026-05-04 */
+
+:root {
+  /* ── Brand Colors ── */
+  /* Sterling Sisters: Pixel cyan + Lila gold */
+  --airlock-bg:           #080A0F;   /* Near-black, cool blue cast */
+  --airlock-surface:      #0D1117;   /* Card / section surfaces */
+  --airlock-surface-alt:  #111827;   /* Slightly elevated surfaces */
+  --airlock-border:       #1C2333;   /* Subtle borders */
+  --airlock-border-mid:   rgba(0, 229, 255, 0.12); /* Mid-weight borders */
+
+  /* ── Accent Colors ── */
+  --airlock-cyan:         #00E5FF;   /* Primary — Pixel's energy */
+  --airlock-cyan-dim:     #00A3BF;   /* Dimmed cyan */
+  --airlock-cyan-glow:    rgba(0, 229, 255, 0.18); /* Cyan glow */
+
+  --airlock-gold:         #F5A623;   /* Primary — Lila's energy */
+  --airlock-gold-light:   #FFC666;   /* Light gold */
+  --airlock-gold-dim:     #A66E0F;   /* Dimmed gold */
+  --airlock-gold-glow:    rgba(245, 166, 35, 0.12); /* Gold glow */
+
+  /* ── Semantic Colors ── */
+  --airlock-safe:         #00D68F;   /* Passed / clean / verified */
+  --airlock-safe-dim:     #009960;   /* Dimmed safe */
+  --airlock-danger:       #FF3B5C;   /* Blocked / dirty / hostile */
+  --airlock-danger-dim:   #B8283F;   /* Dimmed danger */
+  --airlock-danger-glow:  rgba(255, 59, 92, 0.15);  /* Danger glow */
+
+  /* ── Text ── */
+  --airlock-text:         #E8ECF1;   /* Primary text */
+  --airlock-text-sec:     #6B7A90;   /* Secondary text */
+  --airlock-text-muted:   #3D4A5C;   /* Muted text / labels */
+  --airlock-text-inverse: #080A0F;   /* Text on light backgrounds */
+
+  /* ── Status Badges ── */
+  --badge-blocked:        #FF3B5C;   /* Red — threat found */
+  --badge-clean:          #00D68F;   /* Green — passed */
+  --badge-scanning:       #F5A623;   /* Amber — processing */
+  --badge-secured:        #00E5FF;   /* Cyan — verified */
+
+  /* ── Typography ── */
+  --font-sans:            'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif:           'Playfair Display', Georgia, serif;
+  --font-mono:            'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* Type scale */
+  --text-hero:            clamp(2.75rem, 6vw, 4.5rem);
+  --text-h1:              clamp(2rem, 4vw, 3rem);
+  --text-h2:              clamp(1.5rem, 3vw, 2.25rem);
+  --text-h3:              1.25rem;
+  --text-body:            1rem;
+  --text-body-sm:         0.9rem;
+  --text-label:           0.7rem;
+
+  /* Type weights */
+  --weight-regular:       400;
+  --weight-medium:        500;
+  --weight-semibold:      600;
+  --weight-bold:          700;
+
+  /* Letter spacing */
+  --tracking-wide:        0.1em;
+  --tracking-wider:       0.15em;
+
+  /* ── Spacing Rhythm ── */
+  --space-section:        clamp(5rem, 10vw, 7.5rem);  /* Section vertical padding */
+  --space-section-sm:     clamp(3rem, 6vw, 4.5rem);  /* Compact section */
+  --space-container:      clamp(1.25rem, 5vw, 3rem);  /* Container horizontal padding */
+  --space-container-max:  1100px;                     /* Max container width */
+  --space-component:      3rem;                       /* Between major components */
+  --space-inner:          1.75rem;                     /* Inner component padding */
+  --space-gap:            1.25rem;                     /* Grid / flex gap */
+
+  /* ── Border Radius ── */
+  --radius-sm:            6px;
+  --radius-md:            12px;
+  --radius-lg:            20px;
+  --radius-xl:            28px;
+  --radius-full:          9999px;
+
+  /* ── Shadows / Glows ── */
+  --shadow-card:          0 2px 12px rgba(0, 0, 0, 0.4);
+  --shadow-card-hover:    0 8px 32px rgba(0, 0, 0, 0.5);
+
+  --glow-cyan:            0 0 20px rgba(0, 229, 255, 0.2);
+  --glow-cyan-sm:         0 0 10px rgba(0, 229, 255, 0.15);
+  --glow-gold:            0 0 20px rgba(245, 166, 35, 0.18);
+  --glow-gold-sm:         0 0 10px rgba(245, 166, 35, 0.12);
+  --glow-safe:            0 0 16px rgba(0, 214, 143, 0.2);
+  --glow-danger:          0 0 16px rgba(255, 59, 92, 0.2);
+
+  /* ── Motion ── */
+  --ease-out:             cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:          cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast:        150ms;
+  --duration-base:        250ms;
+  --duration-slow:        400ms;
+}
+
+/* Legacy token aliases for backward compat */
 .root {
-  /* Brand / Safe / Keep-in */
-  --gold:          #D4A017;
-  --gold-light:    #F0C040;
-  --gold-dim:      #8A6A0A;
-  --white:         #F5F5F0;
-  --cream:         #E8E4D9;
-  
-  /* Threats / Keep-out */
-  --red:           #E63946;
-  --red-dim:       #8B1A22;
-  --red-glow:      rgba(230, 57, 70, 0.15);
-  
-  /* Surfaces */
-  --bg-primary:    #0A0A0A;
-  --bg-secondary:  #111111;
-  --bg-card:       #141414;
-  --bg-elevated:   #1A1A1A;
-  
-  /* Borders / Dividers */
-  --border-subtle: rgba(212, 160, 23, 0.15);
-  --border-mid:    rgba(212, 160, 23, 0.3);
-  
-  /* Text */
-  --text-primary:  #F0EDE6;
-  --text-secondary: #B8B3A4;
-  --text-muted:    #6B6659;
-  
-  /* Danger label */
-  --text-danger:   #FF4D5A;
-  
-  /* Typography */
-  --font-sans:     'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-serif:    'Playfair Display', Georgia, serif;
-  
-  /* Spacing */
-  --section-pad:   clamp(4rem, 8vw, 7rem);
-  --container:     1100px;
-  --radius-sm:     6px;
-  --radius-md:     12px;
-  --radius-lg:     20px;
+  --gold:          var(--airlock-gold);
+  --gold-light:    var(--airlock-gold-light);
+  --gold-dim:      var(--airlock-gold-dim);
+  --white:         var(--airlock-text);
+  --cream:         var(--airlock-text-sec);
+  --red:           var(--airlock-danger);
+  --red-dim:       var(--airlock-danger-dim);
+  --red-glow:      var(--airlock-danger-glow);
+  --bg-primary:    var(--airlock-bg);
+  --bg-secondary:  var(--airlock-surface);
+  --bg-card:       var(--airlock-surface);
+  --bg-elevated:   var(--airlock-surface-alt);
+  --border-subtle: var(--airlock-border);
+  --border-mid:    var(--airlock-border-mid);
+  --text-primary:  var(--airlock-text);
+  --text-secondary: var(--airlock-text-sec);
+  --text-muted:    var(--airlock-text-muted);
+  --text-danger:   var(--airlock-danger);
+  --font-sans:     var(--font-sans);
+  --font-serif:    var(--font-serif);
+  --section-pad:   var(--space-section);
+  --container:     var(--space-container-max);
+  --radius-sm:     var(--radius-sm);
+  --radius-md:     var(--radius-md);
+  --radius-lg:     var(--radius-lg);
 }
 
 /* ── Page Shell ──────────────────────────── */
@@ -115,11 +200,28 @@
   font-size: 0.875rem;
   font-weight: 500;
   letter-spacing: 0.02em;
-  transition: color 0.2s;
+  transition: color var(--duration-base) var(--ease-out),
+              text-shadow var(--duration-base) var(--ease-out);
 }
 
 .navLinks a:hover {
   color: var(--gold);
+  text-shadow: 0 0 12px var(--airlock-gold-glow);
+}
+
+/* ── Section Dividers ────────────────────── */
+/* Subtle gradient fade between alternating sections */
+.sectionDivider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border-subtle) 20%,
+    var(--border-subtle) 80%,
+    transparent 100%
+  );
+  margin: 0;
+  border: none;
 }
 
 /* ── Section Utilities ────────────────────── */
@@ -127,6 +229,23 @@
   composes: container;
   padding-top: var(--section-pad);
   padding-bottom: var(--section-pad);
+  position: relative;
+}
+
+/* Subtle top-edge glow on dark→light transitions */
+.sectionInner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--border-mid) 50%,
+    transparent 100%
+  );
 }
 
 .sectionLabel {
@@ -182,6 +301,23 @@
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+/* Red atmospheric glow on left edge */
+.problem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at top left,
+    rgba(255, 59, 92, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 .threatGrid {
@@ -197,6 +333,15 @@
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 1.5rem 1.75rem;
+  transition: border-color var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out);
+}
+
+.threatCard:hover {
+  border-color: var(--red-dim);
+  box-shadow: 0 0 24px var(--airlock-danger-glow), 0 4px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
 }
 
 .threatLabel {
@@ -215,11 +360,34 @@
 }
 
 .realExample {
-  background: var(--red-glow);
-  border: 1px solid rgba(230, 57, 70, 0.25);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 59, 92, 0.08) 0%,
+    rgba(255, 59, 92, 0.04) 100%
+  );
+  border: 1px solid rgba(230, 57, 70, 0.35);
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
   margin: 2rem 0;
+  box-shadow: 0 0 30px rgba(255, 59, 92, 0.1),
+              inset 0 0 20px rgba(255, 59, 92, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle scan-line texture */
+.realExample::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 59, 92, 0.015) 2px,
+    rgba(255, 59, 92, 0.015) 4px
+  );
+  pointer-events: none;
 }
 
 .realExampleLabel {
@@ -312,6 +480,20 @@
   padding: 0 0.75rem;
   flex-shrink: 0;
   padding-top: 0.35rem;
+  transition: color var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out);
+}
+
+/* Subtle pulse to draw eye in flow direction */
+@media (prefers-reduced-motion: no-preference) {
+  .flowArrow {
+    animation: flowPulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes flowPulse {
+  0%, 100% { opacity: 0.5; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(3px); }
 }
 
 .stripPreserve {
@@ -416,7 +598,8 @@
 
 .installCard:hover {
   border-color: var(--gold);
-  box-shadow: 0 0 20px rgba(212, 160, 23, 0.08);
+  box-shadow: 0 0 30px rgba(212, 160, 23, 0.15), 0 4px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
 }
 
 .installLabel {
@@ -444,6 +627,43 @@
   font-style: italic;
   color: var(--text-secondary);
   line-height: 1.6;
+}
+
+/* ── Quick Start ─────────────────────────── */
+.quickStart {
+  background: var(--bg-card);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quickStartLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+
+.quickStartCmd {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: rgba(212, 160, 23, 0.08);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+.quickStartNote {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
 }
 
 /* ── Waitlist ────────────────────────────── */
@@ -571,11 +791,26 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.priceCard:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 40px rgba(245, 166, 35, 0.2), 0 8px 32px rgba(0, 0, 0, 0.35);
+  transform: translateY(-3px);
 }
 
 .priceCardFeatured {
+  border-color: rgba(245, 166, 35, 0.2);
+  box-shadow: 0 0 30px rgba(245, 166, 35, 0.08);
+}
+
+.priceCardFeatured:hover {
   border-color: var(--gold);
-  box-shadow: 0 0 40px rgba(212, 160, 23, 0.08);
+  box-shadow: 0 0 50px rgba(245, 166, 35, 0.3), 0 12px 40px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4px);
 }
 
 .priceTier {
