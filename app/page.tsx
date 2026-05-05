@@ -26,6 +26,12 @@ export default function Home() {
           <div className={styles.heroImage}>
             <img src="/airlockhero.png" alt="Airlock — External content is evidence, not instruction." />
           </div>
+          <div className={styles.heroContent}>
+            <div className={styles.statusPill}>⏱ Alpha scanner available · Static scan mode today · Hosted API beta opening soon</div>
+            <p className={styles.heroSub}>
+              Airlock reduces prompt-injection exposure by converting untrusted web pages into sanitized evidence packets before your AI agent reads them.
+            </p>
+          </div>
         </section>
 
         {/* The Problem */}
@@ -99,9 +105,9 @@ export default function Home() {
                 <div className={styles.spHeader}>What gets stripped</div>
                 <ul>
                   <li>Hidden or off-screen HTML containing injection text</li>
-                  <li>JavaScript-rendered content that could alter agent behavior</li>
+                  <li>Script, style, iframe, and embed tags that can&apos;t be statically verified</li>
                   <li>Links that trigger memory-write or instruction-override sequences</li>
-                  <li>Any <code>&lt;script&gt;</code>, <code>&lt;style&gt;</code>, <code>&lt;iframe&gt;</code>, and embedded media that can&apos;t be statically verified</li>
+                  <li>URLs that redirect to unverifiable destinations</li>
                 </ul>
               </div>
               <div className={styles.stripPreserveCol}>
@@ -114,7 +120,7 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.noMiddleware}>
-              Static scan mode first. Rendered scan mode coming later.
+              Static scan mode today. Rendered DOM scan mode on the roadmap. Not yet a sole production security boundary.
             </div>
           </div>
         </section>
@@ -167,8 +173,8 @@ export default function Home() {
                 <div className={styles.priceAmount}>$29<span>/mo</span></div>
                 <div className={styles.priceDesc}>Solo developers, first agent ops</div>
                 <ul className={styles.priceFeatures}>
-                  <li>5,000 scans/month</li>
-                  <li>Self-hosted scanner</li>
+                  <li>5,000 hosted scans/month</li>
+                  <li>Audit log</li>
                   <li>Community support</li>
                 </ul>
                 <span className={styles.priceCta}>Get Starter →</span>
@@ -178,7 +184,7 @@ export default function Home() {
                 <div className={styles.priceAmount}>$99<span>/mo</span></div>
                 <div className={styles.priceDesc}>Growing teams, production agents</div>
                 <ul className={styles.priceFeatures}>
-                  <li>50,000 scans/month</li>
+                  <li>50,000 hosted scans/month</li>
                   <li>Audit log (30 day retention)</li>
                   <li>Priority email support</li>
                   <li>Private packets, no watermark</li>
@@ -190,7 +196,7 @@ export default function Home() {
                 <div className={styles.priceAmount}>$299<span>/mo</span></div>
                 <div className={styles.priceDesc}>Multi-agent ops, serious throughput</div>
                 <ul className={styles.priceFeatures}>
-                  <li>1,000,000 scans/month</li>
+                  <li>1,000,000 hosted scans/month</li>
                   <li>Audit log (1 year retention)</li>
                   <li>Slack support</li>
                   <li>5 seats included</li>

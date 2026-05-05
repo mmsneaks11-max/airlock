@@ -292,13 +292,39 @@
   display: block;
 }
 
-.heroInner {
-  /* Overlay text positioned over hero image via the page layout */
+.heroContent {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 90%;
+  max-width: 720px;
+}
+
+.statusPill {
+  display: inline-block;
+  background: rgba(245, 166, 35, 0.12);
+  border: 1px solid rgba(245, 166, 35, 0.35);
+  color: var(--airlock-gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.heroSub {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.55;
+  margin: 0;
 }
 
 /* ── Problem / Threats ────────────────────── */
 .problem {
-  background: var(--bg-secondary);
+  background: var(--airlock-surface);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
   position: relative;
