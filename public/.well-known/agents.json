@@ -1,0 +1,37 @@
+{
+  "$schema": "https://argmax.codes/schemas/agents-v1.json",
+  "directory": "airlock.codes",
+  "version": "0.1.0",
+  "canonical": "https://airlock.codes",
+  "last_verified": "2026-05-17",
+  "operator": {
+    "entity": "The Agent Deck AI LLC",
+    "jurisdiction": "Delaware, USA",
+    "incorporated": "2026-04"
+  },
+  "updated": "2026-05-17",
+  "llms": "https://airlock.codes/llms.txt",
+  "agent_card": "https://airlock.codes/.well-known/agent.json",
+  "change_log": "https://airlock.codes/.well-known/change-log.json",
+  "properties": [
+    {
+      "name": "AirLock Scanner",
+      "url": "https://airlock.codes",
+      "category": "agent_security",
+      "status": "live",
+      "interface": "npm + CLI + Docker",
+      "pricing_usd_monthly": 0,
+      "doc": "https://argmax.codes/clients/airlock.md"
+    }
+  ],
+  "endpoints": {
+    "human_index": "https://airlock.codes/",
+    "agent_index": "https://airlock.codes/.well-known/agents.json",
+    "schema": "https://argmax.codes/schemas/agents-v1.json"
+  },
+  "policy": {
+    "crawlers": "welcome",
+    "tracking": "none",
+    "javascript": "none"
+  }
+}
