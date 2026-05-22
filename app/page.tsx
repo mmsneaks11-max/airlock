@@ -1,6 +1,10 @@
+'use client';
+
 import styles from "./page.module.css";
+import { useState } from "react";
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className={styles.page}>
       {/* Nav */}
@@ -16,6 +20,23 @@ export default function Home() {
             <a href="#open-source">Open Source</a>
             <a href="#pricing">Pricing</a>
             <a href="https://github.com/theagentdeck/airlock" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+          {/* Mobile hamburger */}
+          <button
+            className={styles.hamburger}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            <span className={`${styles.hamburgerIcon} ${mobileMenuOpen ? styles.open : ''}`}></span>
+          </button>
+          {/* Mobile menu */}
+          <div className={`${styles.navLinksMobile} ${mobileMenuOpen ? styles.open : ''}`}>
+            <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)}>How it works</a>
+            <a href="#threats" onClick={() => setMobileMenuOpen(false)}>Threats</a>
+            <a href="#open-source" onClick={() => setMobileMenuOpen(false)}>Open Source</a>
+            <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</a>
+            <a href="https://github.com/theagentdeck/airlock" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>GitHub</a>
           </div>
         </div>
       </nav>
